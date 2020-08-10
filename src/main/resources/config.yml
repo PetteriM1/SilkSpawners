@@ -1,0 +1,3 @@
+# drop mob spawn egg if there is a mob inside the broken spawner
+# requires mob plugin
+dropMob: true

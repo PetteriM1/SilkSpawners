@@ -31,7 +31,7 @@ public class Main extends PluginBase implements Listener {
     public void onBreak(BlockBreakEvent e) {
         if (e.getBlock().getId() == BlockID.MONSTER_SPAWNER) {
             Item item = e.getItem();
-            if (item != null && item.getEnchantment(Enchantment.ID_SILK_TOUCH) != null) {
+            if (item != null && item.isPickaxe() && item.getEnchantment(Enchantment.ID_SILK_TOUCH) != null) {
                 if (useMobPlugin && dropMob) {
                     BlockEntity be = e.getBlock().getLevel().getBlockEntity(e.getBlock());
                     if (be instanceof BlockEntitySpawner) {

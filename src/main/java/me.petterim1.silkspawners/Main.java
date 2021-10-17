@@ -24,14 +24,14 @@ public class Main extends PluginBase implements Listener {
             useMobPlugin = true;
             getLogger().debug("MobPlugin found!");
         }
-        this.getServer().getPluginManager().registerEvents(this, this);
+        getServer().getPluginManager().registerEvents(this, this);
     }
 
     @EventHandler(priority = EventPriority.HIGH, ignoreCancelled = true)
     public void onBreak(BlockBreakEvent e) {
         if (e.getBlock().getId() == BlockID.MONSTER_SPAWNER) {
             Item item = e.getItem();
-            if (item != null && item.isPickaxe() && item.getEnchantment(Enchantment.ID_SILK_TOUCH) != null) {
+            if (item != null && item.isPickaxe() && e.getPlayer().hasPermission("silkspawners.use") && item.getEnchantment(Enchantment.ID_SILK_TOUCH) != null) {
                 if (useMobPlugin && dropMob) {
                     BlockEntity be = e.getBlock().getLevel().getBlockEntity(e.getBlock());
                     if (be instanceof BlockEntitySpawner) {

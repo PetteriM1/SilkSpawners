@@ -1,3 +1,11 @@
+# config version
+# do not edit
+configVersion: 2
+
 # drop mob spawn egg if there is a mob inside the broken spawner
 # requires mob plugin
 dropMob: true
+
+# list of worlds where silk spawners should be disabled for everyone
+worldsDisabled:
+  - "exampleworld"
